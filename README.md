@@ -10,7 +10,7 @@ JS is a programming language based on prototypes, multiparadigm, single-threaded
 
 ## POO Principles
 
-(Introduction to Object Oriented Programming in JavaScript)[https://www.geeksforgeeks.org/introduction-object-oriented-programming-javascript/]
+[Introduction to Object Oriented Programming in JavaScript](https://www.geeksforgeeks.org/introduction-object-oriented-programming-javascript/)
 
 ## What are the differences between "var" and "let"
 
@@ -597,21 +597,21 @@ f(n)=O(inputSize)
 
 ## How Classes work?
 
-(MDN Classes)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes]
+[MDN Classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
 ## Bad practices with Objects and mutations (Object pollution) (Shadow copies)
 
-(Javascript Worst Practice)[https://blog.bitsrc.io/javascript-worst-practices-dc78e19d6f12]
-(Buggy JavaScript Code: The 10 Most Common Mistakes JavaScript Developers Make) [https://www.toptal.com/javascript/10-most-common-javascript-mistakes]
-(What are some of the bad practices Javascript developers often do?)[https://www.quora.com/What-are-some-of-the-bad-practices-Javascript-developers-often-do]
+[Javascript Worst Practice](https://blog.bitsrc.io/javascript-worst-practices-dc78e19d6f12)
+[Buggy JavaScript Code: The 10 Most Common Mistakes JavaScript Developers Make](https://www.toptal.com/javascript/10-most-common-javascript-mistakes)
+[What are some of the bad practices Javascript developers often do?](https://www.quora.com/What-are-some-of-the-bad-practices-Javascript-developers-often-do)
  
 ## Prototypes
 
-(MDN Object Prototypes)[https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes]
+[MDN Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
 ## Cohercion en JS
 
-(Type Coercion)[https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion]
+[Type Coercion](https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion)
 
 # GIT
 ## What is git rebase?
