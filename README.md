@@ -10,16 +10,7 @@ JS is a programming language based on prototypes, multiparadigm, single-threaded
 
 ## POO Principles
 
-### Inheritance
-
-
-### Polymorphism
-
-
-### Abstraction
-
-
-### Encapsulation
+(Introduction to Object Oriented Programming in JavaScript)[https://www.geeksforgeeks.org/introduction-object-oriented-programming-javascript/]
 
 ## What are the differences between "var" and "let"
 
@@ -28,7 +19,7 @@ Variables, declared with var, are either function-scoped or global-scoped. They 
 
 As var ignores code blocks, we’ve got a global variable test.
 
-```
+```js
 if (true) {
   var test = true; // use "var" instead of "let"
 }
@@ -38,7 +29,7 @@ alert(test); // true, the variable lives after if
 
 The same thing for loops: var cannot be block- or loop-local:
 
-```
+```js
 for (var i = 0; i < 10; i++) {
   var one = 1;
   // ...
@@ -50,7 +41,7 @@ alert(one); // 1, "one" is visible after loop, it's a global variable
 
 IMPORTANT!: If a code block is inside a function, then var becomes a function-level variable:
 
-```
+```js
 function sayHi() {
   if (true) {
     var phrase = "Hello";
@@ -67,7 +58,7 @@ alert(phrase); // ReferenceError: phrase is not defined
 
 With var, we can redeclare a variable any number of times. If we use var with an already-declared variable, it’s just ignored:
 
-```
+```js
 var user = "Pete";
 
 var user = "John"; // this "var" does nothing (already declared)
@@ -78,7 +69,7 @@ alert(user); // John
 
 If we declare the same variable with let twice in the same scope, that’s an error:
 
-```
+```js
 let user;
 let user; // SyntaxError: 'user' has already been declared
 ```
@@ -90,7 +81,7 @@ var declarations are processed when the function starts (or script starts for gl
 In other words, var variables are defined from the beginning of the function, no matter where the definition is (assuming that the definition is not in the nested function).
 
 So this code:
-```
+```js
 function sayHi() {
   phrase = "Hello";
 
@@ -103,7 +94,7 @@ sayHi();
 
 …Is technically the same as this (moved var phrase above):
 
-```
+```js
 function sayHi() {
   var phrase;
 
@@ -116,7 +107,7 @@ sayHi();
 
 …Or even as this (remember, code blocks are ignored):
 
-```
+```js
 function sayHi() {
   phrase = "Hello"; // (*)
 
@@ -151,7 +142,7 @@ Declarations are hoisted, but assignments are not.
 
 That’s best demonstrated with an example:
 
-```
+```js
 function sayHi() {
   alert(phrase);
 
@@ -168,7 +159,7 @@ Variable assignment =.
 
 The declaration is processed at the start of function execution (“hoisted”), but the assignment always works at the place where it appears. So the code works essentially like this:
 
-```
+```js
 function sayHi() {
   var phrase; // declaration works at the start...
 
@@ -190,7 +181,7 @@ In JS we can create functions with two different methods, Function Declaration a
 ### Function declaration
 This method uses the keyword function followed by the name of the function, this method allows to declare the function and use it even when it was declared after it's use. Let's see an example.
 
-```
+```js
 // Function Declaration
 
 obtenerCliente("Juan Pablo");
@@ -207,7 +198,7 @@ In this example we can use the function before it's declaration, that's because 
 ### Function Expression
 This method assigns a function to a variable, and it cannot be used before it is declared.
 
-```
+```js
 // Function Expression
 
 const obtenerCliente2 = function (nombre) {
@@ -225,7 +216,7 @@ With respect to a programming function, recursion happens when a function calls 
 
 There are 2 main parts of a recursive function; the base case and the recursive call. The base case is important because without it, the function would theoretically repeat forever (in application there would be what is referred to as a “stack overflow” to stop the repetition which we will touch on a little later). Below is an example of a simple recursive function.
 
-```
+```js
 function getFactorial(number) {
     if(number === 1){
         return 1;
@@ -322,7 +313,7 @@ Crear un objeto literalmente con sus propiedades y este asignarlo a una variable
 
 Ejemplo:
 
-```
+```js
 const person = {
     name: '',
     age: 0,
@@ -340,7 +331,7 @@ Si observamos tendríamos que tener para cada persona el objeto completo, y si q
 ### Prototype
 Otra forma de crear objetos (que no soluciona nuestro problema anterior), es mediante el prototipo del mismo, veamos el ejemplo anterior aplicado a Prototype:
 
-```
+```js
 const person = new Object();
 person.name = 'Yhoshua Ochoa';
 person.age = 24;
@@ -356,7 +347,7 @@ Si observamos el ejemplo, vamos a tener el mismo problema que con Object Literal
 
 Por fortuna existe otra forma (esta sí soluciona nuestro problema anterior) es mediante una función que crea un objeto a partir de un prototipo vacío.
 
-```
+```js
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -388,7 +379,7 @@ Otra forma de crear objetos es utilizando el metodo create() del prototipo Objec
 
 Ejemplo:
 
-```
+```js
 const coder = {
     isStudying : false,
     printIntroduction : function(){
@@ -406,28 +397,221 @@ me.printIntroduction();
 Tambien se pueden crear objetos a partir de clases, aunque JS en el fondo sigue utilizando la cadena de prototipos para manejar clases. De esta manera las clases en JS son azucar sintactico.
 
 ## What is a promise?
+A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.
+
+A Promise is in one of these states:
+
+* pending: initial state, neither fulfilled nor rejected.
+
+* fulfilled: meaning that the operation was completed successfully.
+
+* rejected: meaning that the operation failed.
+
+The eventual state of a pending promise can either be fulfilled with a value or rejected with a reason (error). When either of these options occur, the associated handlers queued up by a promise's then method are called. If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached.
+
+A promise is said to be settled if it is either fulfilled or rejected, but not pending.
+
+[MDN Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ## What is destructuring?
+Destructuring is a JavaScript expression that allows us to extract data from arrays, objects, and maps and set them into new, distinct variables. Destructuring allows us to extract multiple properties, or items, from an array​ at a time.
+
+1. Assigning to existing variable names
+
+Here’s how to destructure values from an object:
+
+```js
+var employee = {    // Object we want to destructure
+    firstname: 'Jon',
+    lastname: 'Snow',
+    dateofbirth: '1990'
+};
+
+// Destructuring the object into our variables
+var { firstname, lastname, dateofbirth } = employee;
+console.log( firstname, lastname, dateofbirth);
+```
+
+2. Assigning to new variable names
+
+The following code destructures the object into variables with a different name than the object property:
+
+```js
+var employee = {    // Object we want to destructure
+    firstname: 'Jon',
+    lastname: 'Snow',
+    dateofbirth: '1990'
+};
+
+// Destructuring the object into variables with
+// different names than the object variables
+var { firstname: fn, lastname: ln, dateofbirth: dob } = employee;
+console.log( fn, ln, dob);
+```
+
+3. Assigning to a variable with default values
+
+We can also assign default values to variables whose keys may not exist in the object we want to destructure. This will prevent our variable from having an undefined value being assigned to it. The code below demonstrates this:
+
+```js
+var employee = {    // Object we want to destructure
+    firstname: 'Jon',
+    lastname: 'Snow',
+    dateofbirth: '1990'
+};
+
+// Destructuring the object into variables without 
+// assigning default values 
+var { firstname, lastname, country } = employee;
+console.log("Without setting default values")
+console.log( firstname, lastname, country);
+
+// Destructuring the object into variables by 
+// assigning default values 
+var { firstname = 'default firstname', 
+      lastname = 'default lastname', 
+      country = 'default country' } = employee;
+console.log("\n After setting default values")
+console.log( firstname, lastname, country);
+```
 
 ## What is Spread Operator?
 
-## What is a shadow copy?
+The spread operator is a new addition to the set of operators in JavaScript ES6. It takes in an iterable (e.g an array) and expands it into individual elements.
+
+The spread operator is commonly used to make shallow copies of JS objects. Using this operator makes the code concise and enhances its readability.
+
+### Syntax
+
+The spread operator is denoted by three dots, ….
+
+1. Copying an array
+
+The array2 has the elements of array1 copied into it. Any changes made to array1 will not be reflected in array2 and vice versa.
+
+If the simple assignment operator had been used then array2 would have been assigned a reference to array1 and the changes made in one array would reflect in the other array which in most cases is undesirable.
+
+```js
+let array1 = ['h', 'e', 'y'];
+let array2 = [...array1];
+console.log(array2);
+```
+
+2. Inserting the elements of one array into another
+
+It can be seen that the spread operator can be used to append one array after any element of the second array. In other words, there is no limitation that baked_desserts can only be appended at the beginning or the end of the desserts2 array.
+
+```js
+let baked_desserts = ['cake', 'cookie', 'donut'];
+let desserts = ['icecream', 'flan', 'frozen yoghurt', ...baked_desserts];
+console.log(desserts);
+//Appending baked_desserts after flan
+let desserts2 = ['icecream', 'flan', ...baked_desserts, 'frozen yoghurt'];
+console.log(desserts2);
+```
+
+3. Array to arguments
+
+```js
+function multiply(number1, number2, number3) {
+  console.log(number1 * number2 * number3);
+}
+let numbers = [1,2,3];
+multiply(...numbers);
+```
+
+Instead of having to pass each element like numbers[0], numbers[1] and so on, the spread operators allows array elements to be passed in as individual arguments.
+
+```js
+//Passing elements of the array as arguments to the Math Object
+let numbers = [1,2,300,-1,0,-100];
+console.log(Math.min(...numbers));
+```
+
+The Math object of Javascript does not take in a single array as an argument but with the spread operator, the array is expanded into a number or arguments with just one line of code.
+
+## What is a shallow copy?
+
+A shallow copy of an object is a copy whose properties share the same references (point to the same underlying values) as those of the source object from which the copy was made. As a result, when you change either the source or the copy, you may also cause the other object to change too — and so, you may end up unintentionally causing changes to the source or copy that you don't expect. That behavior contrasts with the behavior of a deep copy, in which the source and copy are completely independent.
 
 ## What is Async / Await?
+An async function is a function declared with the async keyword, and the await keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 
-## What is the Lexical Scope?
+Async functions may also be defined as expressions.
+
+```js
+function resolveAfter2Seconds() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, 2000);
+  });
+}
+
+async function asyncCall() {
+  console.log('calling');
+  const result = await resolveAfter2Seconds();
+  console.log(result);
+  // expected output: "resolved"
+}
+
+asyncCall();
+```
+
+### Return Value
+
+A Promise which will be resolved with the value returned by the async function, or rejected with an exception thrown from, or uncaught within, the async function.
+
+### Description
+Async functions can contain zero or more await expressions. Await expressions make promise-returning functions behave as though they're synchronous by suspending execution until the returned promise is fulfilled or rejected. The resolved value of the promise is treated as the return value of the await expression. Use of async and await enables the use of ordinary try / catch blocks around asynchronous code.
+
+> Note: The purpose of async/await is to simplify the syntax necessary to consume promise-based APIs. The behavior of async/await is similar to combining generators and promises.
+
+Code after each await expression can be thought of as existing in a .then callback. In this way a promise chain is progressively constructed with each reentrant step through the function. The return value forms the final link in the chain.
 
 ## What "this" means in JS?
 
+In most cases, the value of this is determined by how a function is called (runtime binding). It can't be set by assignment during execution, and it may be different each time the function is called. ES5 introduced the bind() method to set the value of a function's this regardless of how it's called, and ES2015 introduced arrow functions which don't provide their own this binding (it retains the this value of the enclosing lexical context).
+
+const test = {
+  prop: 42,
+  func: function() {
+    return this.prop;
+  },
+};
+
+console.log(test.func());
+// expected output: 42
+
 ## What is Big O notation?
+
+Big-O is a standard mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. To measure the efficiency of an algorithm, we need to consider two things:
+
+* **Time Complexity**: How much time does it take to run completely?
+
+* **Space Complexity**: How much extra space does it require in the process?
+
+Big-O notation captures the upper bound to show how much time or space an algorithm would require in the worst case scenario as the input size grows. It is usually written as:
+
+f(n)=O(inputSize)
 
 ## How Classes work?
 
+(MDN Classes)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes]
+
 ## Bad practices with Objects and mutations (Object pollution) (Shadow copies)
+
+(Javascript Worst Practice)[https://blog.bitsrc.io/javascript-worst-practices-dc78e19d6f12]
+(Buggy JavaScript Code: The 10 Most Common Mistakes JavaScript Developers Make) [https://www.toptal.com/javascript/10-most-common-javascript-mistakes]
+(What are some of the bad practices Javascript developers often do?)[https://www.quora.com/What-are-some-of-the-bad-practices-Javascript-developers-often-do]
  
 ## Prototypes
 
+(MDN Object Prototypes)[https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes]
+
 ## Cohercion en JS
+
+(Type Coercion)[https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion]
 
 # GIT
 ## What is git rebase?
