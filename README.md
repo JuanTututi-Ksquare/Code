@@ -12,6 +12,10 @@ JS is a programming language based on prototypes, multiparadigm, single-threaded
 
 [Introduction to Object Oriented Programming in JavaScript](https://www.geeksforgeeks.org/introduction-object-oriented-programming-javascript/)
 
+[Abstraction in JS](https://linuxhint.com/javascript-abstraction/#:~:text=The%20concept%20of%20Abstraction%20in,the%20code%20and%20avoid%20duplication.)
+
+[OOPS in JavaScript with easy to understand examples 🔥🔥](https://dev.to/nehal_mahida/oops-in-javascript-with-easy-to-understand-examples-2ppn)
+
 ## What are the differences between "var" and "let"
 
 ### “var” has no block scope
@@ -583,6 +587,10 @@ const test = {
 console.log(test.func());
 // expected output: 42
 
+## What is the difference between Regular Functions and Arrow Functions?
+
+[The Difference Between Regular Functions and Arrow Functions](https://betterprogramming.pub/difference-between-regular-functions-and-arrow-functions-f65639aba256)
+
 ## What is Big O notation?
 
 Big-O is a standard mathematical notation that shows how efficient an algorithm is in the worst-case scenario relative to its input size. To measure the efficiency of an algorithm, we need to consider two things:
@@ -602,7 +610,9 @@ f(n)=O(inputSize)
 ## Bad practices with Objects and mutations (Object pollution) (Shadow copies)
 
 [Javascript Worst Practice](https://blog.bitsrc.io/javascript-worst-practices-dc78e19d6f12)
+
 [Buggy JavaScript Code: The 10 Most Common Mistakes JavaScript Developers Make](https://www.toptal.com/javascript/10-most-common-javascript-mistakes)
+
 [What are some of the bad practices Javascript developers often do?](https://www.quora.com/What-are-some-of-the-bad-practices-Javascript-developers-often-do)
  
 ## Prototypes
