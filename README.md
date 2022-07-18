@@ -179,6 +179,13 @@ Because all var declarations are processed at the function start, we can referen
 
 In both examples above, alert runs without an error, because the variable phrase exists. But its value is not yet assigned, so it shows undefined.
 
+## What is the scope?
+
+Scope in JavaScript refers to the current context of code, which determines the accessibility of variables to JavaScript. The two types of scope are local and global:
+
+* **Global variables** are those declared outside of a block
+* **Local variables** are those declared inside of a block
+
 ## Function Declaration vs Function Expression
 In JS we can create functions with two different methods, Function Declaration and Function Expression. 
 

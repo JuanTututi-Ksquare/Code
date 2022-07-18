@@ -1,0 +1,14 @@
+{
+  "name": "ground-zeroes",
+  "version": "1.0.0",
+  "description": "Testing ground for different technologies on Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.7.4"
+  }
+}
