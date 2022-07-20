@@ -314,7 +314,7 @@ Take into consideration the properties prefixes, in Vanilla JS we can use an und
 ## Formas de crear objetos
 
 * Object Literals
-* Prototype
+* Object Constructor
 * Function constructors
 
 
@@ -339,7 +339,7 @@ console.log(person.presented()); //output Hello my name is Yhoshua Ochoa and I a
 
 Si observamos tendríamos que tener para cada persona el objeto completo, y si quisiéramos cambiar una propiedad o método, ufffff, creo que ha quedado claro que no es lo mejor… por suerte en JavaScript existen formas de hacerlo sin que tengamos que hacer nada raro.
 
-### Prototype
+### Object Constructor
 Otra forma de crear objetos (que no soluciona nuestro problema anterior), es mediante el prototipo del mismo, veamos el ejemplo anterior aplicado a Prototype:
 
 ```js
@@ -626,9 +626,241 @@ f(n)=O(inputSize)
 
 [MDN Object Prototypes](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes)
 
-## Cohercion en JS
+## What is JS Coercion?
+
+There are two types of type coercion in JS, implicit and explicit.
+
+### Implicit coercion
+
+Implicit coercion refers to the action that JS performs when you are operating on a variable, JS compiles the instruction and tries to convert the type of a variable into an available type for the operation to not throw an error.
+
+For example:
+
+```js
+const number1 = 10;
+const number2 = "10";
+
+const result = number1 + number2; // result: 1010
+```
+
+JS converts the type of number1 into a string, and then it concatenates the number2. This is implicit type coercion, the same happens if we compare the values using double equals operator ( == ).
+
+### Explicit coercion
+
+Explicit coercion refers to the action of converting the type of a variable in an explicit way. In most cases this is performed when we use a function to convert the type of a variable into another type.
+
+For example:
+
+```js
+const number1 = "20";
+const number2 = 20;
+
+const convertedString1 = Number(number1); // value: 20, type: Number
+const convertedNumber1 = number2.toString(); // value "20", type: String
+```
+
+In this case we are telling JS the type that we want to convert one variable into, this is called explicit coercion.
 
 [Type Coercion](https://developer.mozilla.org/en-US/docs/Glossary/Type_coercion)
+
+## What is Object Binding?
+
+Object Binding refers to how JS will make a reference when you are using the "this" keyword. Object binding will assign an object to be used as the reference for the "this". This can be achieved in two different ways. Using implicit binding and using explicit binding.
+
+### Implicit binding
+
+Implicit binding occurs when you create a new object using Object Literals and the "new" keyword with Function Constructor or classes.
+
+For example:
+
+```js
+const obj1 = {
+  name: "Juan Pablo",
+  age: 28,
+  getInfo() {
+    console.log(`Hello, my name is ${this.name} and i'm ${this.age} years old`)
+  }
+}
+
+obj1.getInfo(); // "Hello my name is Juan Pablo and i'm 28 years old"
+```
+
+In this example JS can infer that the "this" will make a reference to obj1, it means we are not telling JS where this.name and this.age exist, it will automatically know that the reference is obj1. This is implicit binding.
+
+### Explicit Binding
+
+Explicit binding will tell JS exactly what object will be used as reference for the "this" keyword. To accomplish Explicit Binding we can use JS built-in methods Bind(), Call() and Apply().
+
+But they behave in different ways. 
+
+* Bind
+Bind will create a new function that will be assigned to a variable so it can execute a function with an specific object to be binded.
+
+For example:
+
+```js
+const obj1 = {
+  name: "Juan Pablo"
+}
+
+const obj2 = {
+  name: "Dante"
+}
+
+const getInfo = (age) => {
+  console.log(`Hello, my name is ${this.name} and i'm ${age} years old`)
+}
+
+const bindedFunction1 = obj1.bind(getInfo, 28);
+bindedFunction1() // "Hello my name is Juan Pablo and i'm 28 years old"
+
+const bindedFunction2 = obj2.bind(getInfo, 35);
+bindedFunction2() // "Hello my name is Dante and i'm" 35 years old"
+```
+
+In this example we are creating two objects with a name property. Then we create a function that uses this.name and receives a paramater age.
+
+With bind we create two new functions that will bind the functions we declare to the object we want to be taken as reference for the "this", then we can execute them and they will know exactly what is the object to be used as reference for "this".
+
+Note that the parameters for the bind() function will be the function to be binded and then the parameters, if there's more than 1 paramater to be used in the function they have to be passed as arguments one by one:
+
+```js
+const bindedFunction = obj.bind(fn, arg1, arg2, arg3, ...)
+```
+
+* Call
+Call is also a method that can be used to bind a function to an object, but instead of creating a new function, the Call method will execute the function inmediatly. The parameters for the Call() function are exacly the same as Bind(), where each parameter of the function needs to be passed as individual arguments.
+
+For example:
+
+```js
+const obj1 = {
+  name: "Juan Pablo"
+}
+
+const getInfo = (age) => {
+  console.log(`Hello my name is ${this.name} and i'm ${age} years old`);
+}
+
+obj1.call(getInfo, 28); // "Hello my name is Juan Pablo and i'm 28 years old"
+```
+
+As we can see if we use the Call() method on an object, it will take the object as reference for the "this" and the parameters of the function will be passed down as individual arguments for the function execution, and then the function will be executed.
+
+* Apply
+Apply() is rather similar to Call(), the only difference is that the arguments for the function will be passed as an array.
+
+For example:
+
+```js
+const obj1 = {
+  name: "Juan Pablo"
+}
+
+const getInfo = (age, genre) => {
+  console.log(`Hello my name is ${this.name} and i'm ${age} years old. I like ${genre} music`);
+}
+
+const info = [28, "Rock"]
+
+obj1.call(getInfo, info); // "Hello my name is Juan Pablo and i'm 28 years old. I like Rock music"
+```
+
+As we can see in the previous examples, JS allows us to specify the object to use as the "this" reference, we bind a function to an object in a explicit way. This is called explicit binding.
+
+## What are JS Modules?
+
+JavaScript modules allow you to break up your code into separate files.
+
+This makes it easier to maintain the code-base.
+
+JavaScript modules rely on the import and export statements.
+
+### Export
+
+You can export a function or variable from any file.
+
+Let us create a file named person.js, and fill it with the things we want to export.
+
+There are two types of exports: Named and Default.
+
+* Named Exports
+
+You can create named exports two ways. In-line individually, or all at once at the bottom.
+
+In-line individually:
+
+person.js
+
+```js
+export const name = "Jesse";
+export const age = 40;
+```
+
+All at once at the bottom:
+
+person.js
+
+```js
+const name = "Jesse";
+const age = 40;
+
+export {name, age};
+```
+
+* Default exports
+
+
+Let us create another file, named message.js, and use it for demonstrating default export.
+
+You can only have one default export in a file.
+
+message.js
+
+```js
+const message = () => {
+const name = "Jesse";
+const age = 40;
+return name + ' is ' + age + 'years old.';
+};
+
+export default message;
+```
+
+### Import
+
+You can import modules into a file in two ways, based on if they are named exports or default exports.
+
+Named exports are constructed using curly braces. Default exports are not.
+
+* Import from named exports
+
+Import named exports from the file person.js:
+
+```js
+import { name, age } from "./person.js";
+```
+
+* Import from default exports
+
+Import a default export from the file message.js:
+
+```js
+import message from "./message.js";
+```
+
+
+## Error-First Callback in Node.js 
+
+Is a function which either returns an error object or any successful data returned by the function.
+
+## What is REST
+
+## Use Strict
+
+[Use strict](https://www.programiz.com/javascript/use-strict)
+
+## Temporal dead zone
 
 # GIT
 ## What is git rebase?
