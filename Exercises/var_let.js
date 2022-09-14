@@ -4,4 +4,9 @@ const getName = () => {
 }
 
 getName();
-console.log(name);
+
+if (true) {
+  let lastName = "Tututi"; 
+}
+
+console.log(lastName);

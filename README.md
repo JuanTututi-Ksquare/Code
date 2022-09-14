@@ -856,6 +856,50 @@ Is a function which either returns an error object or any successful data return
 
 ## What is REST
 
+REST, or REpresentational State Transfer, is an architectural style for providing standards between computer systems on the web, making it easier for systems to communicate with each other.
+
+### Separation of client and server
+
+In the REST architectural style, the implementation of the client and the implementation of the server can be done independently without each knowing about the other.
+
+### Statelessness
+
+Systems that follow the REST paradigm are stateless, meaning that the server does not need to know anything about what state the client is in and vice versa.
+
+Most of the time REST uses HTTP
+
+## What is API?
+
+API is the acronym for Application Programming Interface, which is a software intermediary that allows two applications to talk to each other. Each time you use an app like Facebook, send an instant message, or check the weather on your phone, you’re using an API.
+
+## What is Express JS
+
+Básicamente es un marco de desarrollo minimalista para Node.js que permite estructurar una aplicación de una manera ágil, nos proporciona funcionalidades como el enrutamiento, opciones para gestionar sesiones y cookies, etc.
+
+## What is State in React
+
+React components has a built-in state object.
+
+The state object is where you store property values that belongs to the component.
+
+When the state object changes, the component re-renders.
+
+## What are high order functions?
+
+A higher order function is a function that takes a function as an argument, or returns a function. Higher order function is in contrast to first order functions, which don’t take a function as an argument or return a function as output.
+
+Earlier we saw examples of .map() and .filter(). Both of them take a function as an argument. They're both higher order functions.
+
+## What is REST and RESTFUL?
+
+## What is Node?
+
+## That is V8?
+
+## What is ECMAScript?
+
+## Components Lifecycle
+
 ## Use Strict
 
 [Use strict](https://www.programiz.com/javascript/use-strict)

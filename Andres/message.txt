@@ -1,0 +1,375 @@
+//Palindromos
+
+/* const isPalindrome = (input) => {
+  transformedInput = input.split(" ").join("");
+  reverseInput = transformedInput.split("").reverse().join("");
+  if (transformedInput === reverseInput) {
+    console.log("is a palindrome");
+  } else {
+    console.log("is not a palindrome");
+  }
+};
+
+isPalindrome("la ruta natural"); */
+
+/* for (var i = 1; i <= 3; i++) {
+  setTimeout(
+    function (i) {
+      console.log(i);
+    },
+    1000,
+    i
+  );
+} */
+
+/* function createIncrement() {
+  let count = 0;
+
+  function increment() {
+    count++;
+  }
+
+  function log() {
+    let message = `Count is ${count}`;
+    console.log(message);
+  }
+
+  return [increment, log];
+}
+const [increment, log] = createIncrement();
+increment();
+increment();
+increment();
+log(); // What is logged? */
+
+/* function createStack() {
+  const items = [];
+  return {
+    push(item) {
+      items.push(item);
+    },
+    pop() {
+      return items.pop();
+    },
+  };
+}
+
+const stack = createStack();
+stack.push(10);
+stack.push(5);
+console.log(stack.pop()); // => 5
+stack.items; // => undefined
+console.log(stack.items);
+ */
+
+/* const multiply = () => {
+  console.log("%c Fondo rojo", "background-color: red");
+};
+
+multiply(); */
+
+/* let arr = [1, 2, 3];
+const res = [];
+const mapFunction = (element) => {
+  return res.push(element + 2);
+};
+const map = (arr) => {
+  arr.forEach((element) => {
+    mapFunction(element);
+  });
+};
+map(arr); */
+
+/* const testObj = { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6, g: 7 };
+
+function omit(obj, ...args) {
+  for (item in args) {
+    delete obj[args[item]];
+  }
+  return obj;
+}
+console.log(omit(testObj, "a", "b", "c", "d")); */
+
+/* There are 100 doors in a row that are all initially closed. 
+You make 100 passes by the doors. The first time through, 
+visit every door and 'toggle' the door (if the door is closed, open it; if it is open, close it). 
+The second time, only visit every 2nd door (i.e., door #2, #4, #6, ...) and toggle it. 
+The third time, visit every 3rd door (i.e., door #3, #6, #9, ...), etc., until you only visit the 100th door.
+
+Implement a function to determine the state of the doors after the last pass. 
+Return the final result in an array, with only the door number included in the array if it is open. */
+
+/* let doorsArr = new Array(100).fill(false);
+let cont = 1;
+while (cont !== 101) {
+  for (let i = cont; i <= doorsArr.length; i += cont) {
+    doorsArr[i - 1] = !doorsArr[i - 1];
+  }
+  cont++;
+}
+
+for (let index = 0; index < doorsArr.length; index++) {
+  if (doorsArr[index] === true) {
+    console.log(index + 1);
+  }
+}
+
+let doorsArr = new Array(100).fill(false);
+
+for (let j = 1; j <= doorsArr.length; j++) {
+  for (let i = j; i <= doorsArr.length; i += j) {
+    doorsArr[i - 1] = !doorsArr[i - 1];
+  }
+}
+for (let index = 0; index < doorsArr.length; index++) {
+  if (doorsArr[index] === true) {
+    console.log(index + 1);
+  }
+}
+ */
+
+/* let text = "jose andres cervera novelo";
+let full = text.split(" ");
+const inputFirstName = text.split(" ")[0];
+const inputMiddleName = text.split(" ")[1];
+const inputLastName = text.split(" ")[2];
+const inputSecondLastName = text.split(" ")[3];
+
+console.log(full);
+console.log(full[0]);
+console.log(inputLastName);
+console.log(inputSecondLastName); */
+
+/* let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+
+arr1 = [...arr1, ...arr2];
+
+console.log(arr1);
+ */
+
+/* const arr = [1, 2, 3, 4, 5, 3, 2];
+const unique = [];
+const wordCounter = (arr) => {
+  let count = {};
+  for (item of arr) {
+    if (count[item]) {
+      count[item]++;
+    } else {
+      count[item] = 1;
+    }
+  }
+  for (item in count) {
+    if (count[item] === 1) {
+      unique.push(item);
+    }
+  }
+  console.log(count);
+  return unique;
+};
+console.log(wordCounter(arr)); */
+
+/* arr = [1, 2, 3, 4, 6, 7, 8, 9];
+
+const twoSum = (arr, target) => {
+  let hash = {};
+  let sum = [];
+  for (item of arr) {
+    let diff = target - item;
+    if (!hash[diff.toString()]) {
+      hash[item.toString()] = item;
+    } else {
+      sum.push([item, diff]);
+    }
+  }
+  return sum;
+};
+console.log(twoSum(arr, 5)); */
+
+/* const arr = [1, 4, 3, 6, 5, 7];
+
+const missing = [];
+const miss = (arr) => {
+  arr = arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] + 1 !== arr[i + 1]) {
+      missing.push(arr[i] + 1);
+    }
+  }
+  return missing;
+};
+
+console.log(miss(arr)); */
+
+/* const arr = [1, 4, 3, 10, 6, 5, 7];
+const largest = (arr, n) => {
+  arr.sort((a, b) => a - b);
+
+  const result = arr[arr.length - n];
+  return result;
+};
+console.log(largest(arr, 3)); */
+
+/* const arr = [1, 2, 3, 4, 5, 3, 5];
+const unique = [];
+
+for (let i = 0; i < arr.length; i++) {
+  arr.sort((a, b) => a - b);
+  if (arr[i] !== arr[i + 1]) {
+    unique.push(arr[i]);
+  }
+}
+console.log(unique); */
+
+/* const input = "anita lava la tina";
+const inputWithoutSpaces = input.replace(/ /g, "");
+console.log(inputWithoutSpaces);
+const reverseInput = inputWithoutSpaces.split("").reverse().join("");
+
+if (inputWithoutSpaces === reverseInput) {
+  console.log("palindrome");
+} else {
+  console.log("is not a palindrome");
+}
+ */
+
+/* const bunny = {
+  name: "Andres",
+  tasks: ["Learn", "Speak"],
+  showTask: function () {
+    this.tasks.forEach((task) => {
+      console.log(`${this.name} wants to ${task}`);
+    });
+  },
+};
+bunny.showTask(); */
+
+/* const minMax = (arr) => {
+  const sortedArr = arr.sort((a, b) => a - b);
+  let min = sortedArr[0];
+  let max = sortedArr[sortedArr.length - 1];
+  return min + max;
+};
+
+console.log(minMax([1, 2, 13, 4, 5, 6, 8, 12, 7, 6]));
+
+const minMax1 = (arr) => {
+  let min = arr[0];
+  let max = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < min) {
+      min = arr[i];
+    }
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+  return min + max;
+};
+
+console.log(minMax1([4, 2, 13, 4, 5, 6, 8, 12, 7, 6])); */
+/* let people = [
+  { name: "Puchaco", age: 26 },
+  { name: "Fede", age: 25 },
+  { name: "Andres", age: 25 },
+  { name: "Braulio", age: 26 },
+];
+
+const groupBy = (arr) => {
+  let check = {};
+  for (item of arr) {
+    if (!check[item.age]) {
+      check[item.age] = [item];
+    } else {
+      check[item.age].push(item);
+    }
+  }
+  return check;
+};
+
+console.log(groupBy(people)); */
+
+/* const obj1 = {};
+
+const obj2 = new Object();
+
+const obj3 = Object.create(null);
+ */
+//debe regresar un objeto con las veces que se repite cada palabra
+/* const arr = ["hola", "mundo", "js", "hola", "js"];
+const unique = [];
+const counter = (arr) => {
+  const count = {};
+  for (item of arr) {
+    if (count[item]) {
+      count[item]++;
+    } else {
+      count[item] = 1;
+    }
+  }
+  for (item in count) {
+    if (count[item] >= 1) {
+      unique.push(item);
+    }
+  }
+  return unique;
+};
+console.log(counter(arr));
+ */
+
+/* let people = [
+  { name: "Puchaco", age: 26 },
+  { name: "Fede", age: 25 },
+  { name: "Andres", age: 25 },
+  { name: "Braulio", age: 26 },
+];
+
+const groupBy = (arr) => {
+  let check = {};
+  for (item of arr) {
+    if (!check[item.age]) {
+      check[item.age] = [item];
+    } else {
+      check[item.age].push(item);
+    }
+  }
+  return check;
+};
+console.log(groupBy(people)); */
+
+//Find the pairs of array element for which sum is equal to given target value (Two Sum Problem)
+
+/* arr = [1, 2, 3, 4, 6, 7, 8, 9];
+
+const twoSum = (arr, target) => {
+  let hash = {};
+  let sum = [];
+  for (item of arr) {
+    let diff = target - item;
+    console.log("diff:", diff);
+    if (!hash[diff.toString()]) {
+      hash[item.toString()] = item;
+      console.log("hash:", hash);
+    } else {
+      sum.push([item, diff]);
+      console.log("sum: ", sum);
+    }
+  }
+  return sum;
+};
+console.log(twoSum(arr, 5));
+ */
+
+/* const array1 = [2, 3, 4, 8, -2, 5, 7, 6, 1];
+let min = array[0];
+let max = array[0];
+for (let i = 0; i < array.length; i++) {
+  if (array[i] < min) {
+    min = array[i];
+  }
+  if (array[i] > max) {
+    max = array[i];
+  }
+}
+console.log(min + max); */
